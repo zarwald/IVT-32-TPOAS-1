@@ -5,65 +5,185 @@ import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 
 class MainWindowTests {
-	@Test void calculateTest() {
+	static double precision = 0.0000001;
+	
+	@Test void calculateTest1() {
 		MainWindow window = new MainWindow();
-		
-		double precicion = 0.0000001;
-		
-		int x1 = -12;
-		int y1 = -50;
-		int z1 = -3;
-		double ro1 = 51.4198405;
-		double phi1 = 1.3352513;
-		double zo1 = -3.0000000;
-		
-		int x2 = -4;
-		int y2 = 4;
-		int z2 = 10;
-		double ro2 = 5.6568542;
-		double phi2 = -0.7853982;
-		double zo2 = 10.0;
-		
-		int x3 = 0;
-		int y3 = 1;
-		int z3 = -1;
-		double ro3 = 1.0;
-		double phi3 = 1.5707963;
-		double zo3 = -1.0;
-		
-		int x4 = 1;
-		int y4 = 0;
-		int z4 = 0;
-		double ro4 = 1.0;
-		double phi4 = 0.0;
-		double zo4 = 0.0;
 
-		window.setValues(x1, y1, z1);
+		int x = 1;
+		int y = 0;
+		int z = 0;
+		double ro = 1.0;
+		double phi = 0.0;
+		double zo = 0.0;
+
+		window.setValues(x, y, z);
 		window.calculate();
 
-		assertEquals(ro1, window.roValue, precicion);
-		assertEquals(phi1, window.phiValue, precicion);
-		assertEquals(zo1, window.zValue, precicion);
-		
-		window.setValues(x2, y2, z2);
+		assertEquals(ro, window.roValue, precision);
+		assertEquals(phi, window.phiValue, precision);
+		assertEquals(zo, window.zValue, precision);
+	}
+	
+	@Test void calculateTest2() {
+		MainWindow window = new MainWindow();
+
+		int x = 0;
+		int y = 1;
+		int z = -1;
+		double ro = 1.0;
+		double phi = 1.5707963;
+		double zo = -1.0;
+
+		window.setValues(x, y, z);
 		window.calculate();
 
-		assertEquals(ro2, window.roValue, precicion);
-		assertEquals(phi2, window.phiValue, precicion);
-		assertEquals(zo2, window.zValue, precicion);
-		
-		window.setValues(x3, y3, z3);
+		assertEquals(ro, window.roValue, precision);
+		assertEquals(phi, window.phiValue, precision);
+		assertEquals(zo, window.zValue, precision);
+	}
+	
+	@Test void calculateTest3() {
+		MainWindow window = new MainWindow();
+
+		int x = 1;
+		int y = 1;
+		int z = 1;
+		double ro = 1.4142136;
+		double phi = 0.7853982;
+		double zo = 1.0;
+
+		window.setValues(x, y, z);
 		window.calculate();
 
-		assertEquals(ro3, window.roValue, precicion);
-		assertEquals(phi3, window.phiValue, precicion);
-		assertEquals(zo3, window.zValue, precicion);
-		
-		window.setValues(x4, y4, z4);
+		assertEquals(ro, window.roValue, precision);
+		assertEquals(phi, window.phiValue, precision);
+		assertEquals(zo, window.zValue, precision);
+	}
+	
+	@Test void calculateTest4() {
+		MainWindow window = new MainWindow();
+
+		int x = -1;
+		int y = -1;
+		int z = -1;
+		double ro = 1.4142136;
+		double phi = 0.7853982;
+		double zo = -1.0;
+
+		window.setValues(x, y, z);
 		window.calculate();
 
-		assertEquals(ro4, window.roValue, precicion);
-		assertEquals(phi4, window.phiValue, precicion);
-		assertEquals(zo4, window.zValue, precicion);
+		assertEquals(ro, window.roValue, precision);
+		assertEquals(phi, window.phiValue, precision);
+		assertEquals(zo, window.zValue, precision);
+	}
+	
+	@Test void calculateTest5() {
+		MainWindow window = new MainWindow();
+
+		int x = -4;
+		int y = 4;
+		int z = 10;
+		double ro = 5.6568542;
+		double phi = -0.7853982;
+		double zo = 10.0;
+
+		window.setValues(x, y, z);
+		window.calculate();
+
+		assertEquals(ro, window.roValue, precision);
+		assertEquals(phi, window.phiValue, precision);
+		assertEquals(zo, window.zValue, precision);
+	}
+	
+	@Test void calculateTest6() {
+		MainWindow window = new MainWindow();
+
+		int x = -10;
+		int y = -10;
+		int z = -10;
+		double ro = 14.1421356;
+		double phi = 0.7853982;
+		double zo = -10.0;
+
+		window.setValues(x, y, z);
+		window.calculate();
+
+		assertEquals(ro, window.roValue, precision);
+		assertEquals(phi, window.phiValue, precision);
+		assertEquals(zo, window.zValue, precision);
+	}
+	
+	@Test void calculateTest7() {
+		MainWindow window = new MainWindow();
+
+		int x = -12;
+		int y = -50;
+		int z = -3;
+		double ro = 51.4198405;
+		double phi = 1.3352513;
+		double zo = -3.0000000;
+
+		window.setValues(x, y, z);
+		window.calculate();
+
+		assertEquals(ro, window.roValue, precision);
+		assertEquals(phi, window.phiValue, precision);
+		assertEquals(zo, window.zValue, precision);
+	}
+	
+	@Test void calculateTest8() {
+		MainWindow window = new MainWindow();
+
+		int x = -100;
+		int y = 99;
+		int z = 0;
+		double ro = 140.7160261;
+		double phi = -0.7803731;
+		double zo = 0.0;
+
+		window.setValues(x, y, z);
+		window.calculate();
+
+		assertEquals(ro, window.roValue, precision);
+		assertEquals(phi, window.phiValue, precision);
+		assertEquals(zo, window.zValue, precision);
+	}
+
+	@Test void calculateTest9() {
+		MainWindow window = new MainWindow();
+
+		int x = Short.MAX_VALUE;
+		int y = Short.MIN_VALUE;
+		int z = Short.MIN_VALUE;
+		double ro = 46340.2429105;
+		double phi = -0.7854134;
+		double zo = Short.MIN_VALUE;
+
+		window.setValues(x, y, z);
+		window.calculate();
+
+		assertEquals(ro, window.roValue, precision);
+		assertEquals(phi, window.phiValue, precision);
+		assertEquals(zo, window.zValue, precision);
+	}
+
+	@Test void calculateTest10() {
+		MainWindow window = new MainWindow();
+
+		int x = Integer.MAX_VALUE;
+		int y = Integer.MIN_VALUE;
+		int z = 0;
+		double ro = 3037000499.3;
+		double phi = -0.7853982;
+		double zo = 0.0;
+
+		window.setValues(x, y, z);
+		window.calculate();
+
+		assertEquals(ro, window.roValue, 0.1);
+		assertEquals(phi, window.phiValue, precision);
+		assertEquals(zo, window.zValue, precision);
 	}
 }
